@@ -2,7 +2,6 @@
 import json
 from models.base_model import BaseModel
 
-
 class FileStorage():
 
     __file_path = "file.json"
@@ -24,8 +23,8 @@ class FileStorage():
     def reload(self):
         try:
             with open(self.__file_path, mode='r', encoding="utf-8") as f:
-                file = f.read()
-                for k, v in file.items():
-                    setattr(self.__objects, k, v)
+                des = json.load(f)
+                for i in des:
+                    self.__objects[i] = BaseModel(**des[i])
         except:
             pass
