@@ -10,12 +10,18 @@ class BaseModel():
     """supper clase Base
     """
 
-    def __init__(self, id=str(uuid4()),
-                 created_at=datetime.now(), updated_at=datetime.now()):
+    def __init__(self, *args, **kwargs):
         """ contrutor """
-        self.id = id
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if len(kwargs) > 0:
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    v = datetime.strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                if k != "__class__":
+                    setattr(self, k, v)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """ display the str object information """
@@ -28,8 +34,8 @@ class BaseModel():
 
     def to_dict(self):
         """ dictionary """
-        dic = self.__dict__
+        dic = self.__dict__.copy()
         dic["__class__"] = self.__class__.__name__
         dic["created_at"] = self.created_at.isoformat()
         dic["updated_at"] = self.updated_at.isoformat()
-        return self.__dict__
+        return dic
