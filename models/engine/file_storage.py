@@ -2,23 +2,30 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage():
 
     __file_path = "file.json"
     __objects = {}
-    
+
     def all(self):
         return self.__objects
-    
+
     def new(self, obj):
-        self.__objects[self.__class__.__name__ + ".id"] = obj
+        self.__objects[obj.__class__.__name__ + "." + obj.id] = obj
+
     def save(self):
-        with open(self.__file_path, mode='a', encoding="utf-8") as f:
-            f.write(json.dumps(self.__objects))
+        dic = {}
+        for k, v in self.__objects.items():
+            dic[k] = v.to_dict()
+        with open(self.__file_path, mode='w', encoding="utf-8") as f:
+            json.dump(dic, f)
 
     def reload(self):
-        try:   
+        try:
             with open(self.__file_path, mode='r', encoding="utf-8") as f:
-                self.__objects = json.loads(f)
+                file = f.read()
+                for k, v in file.items():
+                    setattr(self.__objects, k, v)
         except:
             pass
