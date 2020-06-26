@@ -4,14 +4,15 @@ import json
 import cmd
 from datetime import datetime
 from uuid import uuid4
+import models
 
 
 class BaseModel():
-    """supper clase Base
+    """super clase Base
     """
 
     def __init__(self, *args, **kwargs):
-        """ contrutor """
+        """ construtor """
         if len(kwargs) > 0:
             for k, v in kwargs.items():
                 if k == "created_at" or k == "updated_at":
@@ -22,6 +23,8 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self.to_dict())
+            
 
     def __str__(self):
         """ display the str object information """
@@ -29,8 +32,10 @@ class BaseModel():
                 format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
-        """ update de date """
+        """ update date """
         self.updated_at = datetime.now()
+        models.storage.save()
+        
 
     def to_dict(self):
         """ dictionary """
