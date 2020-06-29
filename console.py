@@ -5,6 +5,9 @@ import sys
 import json
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
+
+allclases = {"BaseModel": BaseModel, "User": User}
 
 
 def errors(arg):
@@ -13,10 +16,10 @@ def errors(arg):
     if len(arg) == 0:
         print("** class name missing **")
         return 2
-    elif arg[0] != "BaseModel":
+    elif arg[0] not in allclases:
         print("** class doesn't exist **")
         return 2
-    elif arg[0] == "BaseModel" and len(arg) == 1:
+    elif arg[0]not in allclases and len(arg) == 1:
         print("** instance id missing **")
         return 2
 
@@ -70,8 +73,8 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        elif arg == "BaseModel":
-            My_Object = BaseModel()
+        elif arg in allclases:
+            My_Object = allclases[arg]()
             My_Object.save()
             print(My_Object.id)
         else:
@@ -123,10 +126,10 @@ class HBNBCommand(cmd.Cmd):
         Args:
             - Class Name"""
 
-        if arg != "BaseModel":
+        if arg not in allclases:
             print("** class doesn't exist **")
         else:
-            a = storage.all()
+            a = storage.all(arg)
             b = []
             for i in a.keys():
                 b.append(a[i].__str__())

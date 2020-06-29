@@ -3,6 +3,9 @@
 deserializates to JSON"""
 import json
 from models.base_model import BaseModel
+from models.user import User
+
+allclases = {"BaseModel": BaseModel, "User": User}
 
 
 class FileStorage():
@@ -11,8 +14,16 @@ class FileStorage():
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
+    def all(self, cls=None):
         """This method return the dictionary __objects"""
+        if not None:
+            dic = {}
+            for k, v in self.__objects.items():
+                print("cls {} key {} v {}".format(cls, k, v.__class__))
+                if cls == v.__class__:
+                    dic[k] = v
+                    print(dic)
+            return dic
         return self.__objects
 
     def new(self, obj):
@@ -36,6 +47,7 @@ class FileStorage():
             with open(self.__file_path, mode='r', encoding="utf-8") as f:
                 des = json.load(f)
                 for i in des:
-                    self.__objects[i] = BaseModel(**des[i])
+                    self.__objects[i] = allclases[des[i]
+                                                  ["__class__"]](**des[i])
         except:
             pass
