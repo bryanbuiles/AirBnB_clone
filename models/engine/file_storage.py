@@ -4,8 +4,14 @@ deserializates to JSON"""
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-allclases = {"BaseModel": BaseModel, "User": User}
+allclases = {"BaseModel": BaseModel, "User": User, "State": State,
+    "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class FileStorage():
@@ -16,14 +22,6 @@ class FileStorage():
 
     def all(self, cls=None):
         """This method return the dictionary __objects"""
-        if not None:
-            dic = {}
-            for k, v in self.__objects.items():
-                print("cls {} key {} v {}".format(cls, k, v.__class__))
-                if cls == v.__class__:
-                    dic[k] = v
-                    print(dic)
-            return dic
         return self.__objects
 
     def new(self, obj):

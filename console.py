@@ -6,9 +6,14 @@ import json
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-allclases = {"BaseModel": BaseModel, "User": User}
-
+allclases = {"BaseModel": BaseModel, "User": User, "State": State,
+    "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
 
 def errors(arg):
     """This function check if the input data is complete
@@ -132,7 +137,10 @@ class HBNBCommand(cmd.Cmd):
             a = storage.all(arg)
             b = []
             for i in a.keys():
-                b.append(a[i].__str__())
+                c = str(i)
+                c = c.split(".")
+                if arg == c[0]:
+                    b.append(a[i].__str__())
             print(b)
 
     def do_update(self, arg):
@@ -165,10 +173,13 @@ class HBNBCommand(cmd.Cmd):
             l = ["id", "created_at", "update_at"]
             if var[2] in l:
                 return
-            for j in a.keys():
-                if j == b:
-                    k = parsing(var[3])
-                    setattr(a[j], var[2], k)
+            try:
+                for j in a.keys():
+                    if j == b:
+                        k = parsing(var[3])
+                        setattr(a[j], var[2], k)
+            except:
+                ValueError
 
 
 if __name__ == '__main__':
