@@ -131,9 +131,9 @@ class HBNBCommand(cmd.Cmd):
         'ctrl + d'"""
         return True
 
-    def postloop(self):
+    def emptyline(self):
         """This funtion manage when the user tip enter in a new line"""
-        print
+        pass
 
     def do_create(self, arg):
         """"This funtion Creates a new instance of BaseModel, saves
