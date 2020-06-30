@@ -46,6 +46,36 @@ def parsing(var):
     else:
         return float(var)
 
+def count(arg):
+        a = storage.all()
+        b = 0
+        for i in a.keys():
+            c = str(i)
+            c = c.split(".")
+            if arg == c[0]:
+                b += 1
+        return b
+
+def advance(self, arg, cls):
+    if len(arg) != 0:
+        if arg == ".all()":
+            self.do_all(cls) 
+        elif arg == ".count()":
+            print(count(cls))
+        elif arg[0:9] == ".destroy(":
+            c = arg.split('"')
+            self.do_destroy(cls + " " + c[1])
+        elif arg[0:6] == ".show(":
+            c = arg.split('"')
+            self.do_show(cls + " " + c[1])
+        elif arg[0:8] == ".update(":
+            c = arg.split("(")
+            d = c[1].split(", ")
+            print(cls + " " + d[0][1:-1] + " " + d[1][1:-1]
+                + " " + d[2][:-1])
+            self.do_update(cls + " " + d[0][1:-1] + " " + d[1][1:-1]
+                + " " + d[2][:-1])
+
 
 class HBNBCommand(cmd.Cmd):
     """This class create a Python console that allow create, show, update,
@@ -134,7 +164,7 @@ class HBNBCommand(cmd.Cmd):
         if arg not in allclases:
             print("** class doesn't exist **")
         else:
-            a = storage.all(arg)
+            a = storage.all()
             b = []
             for i in a.keys():
                 c = str(i)
@@ -142,6 +172,7 @@ class HBNBCommand(cmd.Cmd):
                 if arg == c[0]:
                     b.append(a[i].__str__())
             print(b)
+
 
     def do_update(self, arg):
         """This funtion updates an instance based on the class name
@@ -181,6 +212,32 @@ class HBNBCommand(cmd.Cmd):
             except:
                 ValueError
 
+
+    def do_User(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "User")
+        #Falta error
+
+    
+    def do_City(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "City")
+    
+    def do_BaseModel(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "BaseModel")
+    
+    def do_Review(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "Review")
+    
+    def do_Amenity(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "Amenity")
+
+    def do_State(self, arg):
+        if len(arg) != 0:
+            advance(self, arg, "State")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
