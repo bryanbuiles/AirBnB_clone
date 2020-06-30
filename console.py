@@ -116,10 +116,7 @@ class HBNBCommand(cmd.Cmd):
     """This class create a Python console that allow create, show, update,
     a destroy class instances"""
 
-    def __init__(self):
-        """Class constructor"""
-        cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
         """This funtion allow exit from the console using the command 'quit'"""
