@@ -9,9 +9,9 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-
 allclases = {"BaseModel": BaseModel, "User": User, "State": State,
-             "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
+             "City": City, "Amenity": Amenity,
+             "Place": Place, "Review": Review}
 
 
 class FileStorage():
@@ -31,7 +31,8 @@ class FileStorage():
         self.__objects[obj.__class__.__name__ + "." + obj.id] = obj
 
     def save(self):
-        """This method serializes __objects to the JSON file (path: __file_path)"""
+        """This method serializes __objects to the JSON file
+        (path: __file_path)"""
         dic = {}
         for k, v in self.__objects.items():
             dic[k] = v.to_dict()
@@ -39,8 +40,9 @@ class FileStorage():
             json.dump(dic, f)
 
     def reload(self):
-        """This method deserializes the JSON file to __objects (only if the JSON file
-        (__file_path) exists ; otherwise, do nothing. If the file doesn’t exist, no exception should be raised)"""
+        """This method deserializes the JSON file to __objects (only 
+        if the JSON file (__file_path) exists ; otherwise, do nothing.
+        If the file doesn’t exist, no exception should be raised)"""
         try:
             with open(self.__file_path, mode='r', encoding="utf-8") as f:
                 des = json.load(f)
