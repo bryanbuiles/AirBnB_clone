@@ -25,7 +25,7 @@ def errors(arg):
     elif arg[0] not in allclases:
         print("** class doesn't exist **")
         return 2
-    elif arg[0]not in allclases and len(arg) == 1:
+    elif arg[0] in allclases and len(arg) == 1:
         print("** instance id missing **")
         return 2
 
@@ -283,6 +283,7 @@ class HBNBCommand(cmd.Cmd):
             - string from console"""
         if len(arg) != 0:
             advance(self, arg, "State")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
