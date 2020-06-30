@@ -191,8 +191,15 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name
         Args:
             - Class Name"""
-
-        if arg not in allclases:
+        if len(arg) == 0:
+            a = storage.all()
+            b = []
+            for i in a.keys():
+                c = str(i)
+                c = c.split(".")
+                b.append(a[i].__str__())
+            print(b)
+        elif arg not in allclases:
             print("** class doesn't exist **")
         else:
             a = storage.all()
