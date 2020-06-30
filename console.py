@@ -116,24 +116,20 @@ class HBNBCommand(cmd.Cmd):
     """This class create a Python console that allow create, show, update,
     a destroy class instances"""
 
-    def __init__(self):
-        """Class constructor"""
-        cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """This funtion allow exit from the console using the command
-        'quit'"""
-        sys.exit(1)
+        """This funtion allow exit from the console using the command 'quit'"""
+        return True
 
     def do_EOF(self, line):
         """This function allow exit from the console using EOF signal
         'ctrl + d'"""
         return True
 
-    def postloop(self):
+    def emptyline(self):
         """This funtion manage when the user tip enter in a new line"""
-        print
+        pass
 
     def do_create(self, arg):
         """"This funtion Creates a new instance of BaseModel, saves
