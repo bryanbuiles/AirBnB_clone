@@ -221,6 +221,9 @@ class HBNBCommand(cmd.Cmd):
             - Attribute name
             - Attribute value"""
         var = split_string(arg, " ")
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
         k = errors(var)
         if k != 2:
             z = 0
