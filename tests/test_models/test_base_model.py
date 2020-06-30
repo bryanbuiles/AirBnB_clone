@@ -7,18 +7,24 @@ import pep8
 import os
 
 
-class Test_base_model(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     """Class test using unittest"""
 
     @classmethod
     def setUpClass(cls):
-        cls.prueba = BaseModel()
-        cls.prueba.name = "team"
-        cls.prueba.age = 25
+        cls.base = BaseModel()
+        cls.base.name = "team"
+        cls.base.age = 25
 
     @classmethod
     def tearDown(cls):
         del cls.base
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
 
     def test_BaseModel(self):
         self.assertTrue(hasattr(BaseModel, "__init__"))
@@ -27,5 +33,9 @@ class Test_base_model(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, "__str__"))
 
     def test_save(self):
-        self.prueba.save()
-        self.assertNotEqual(self.prueba.created_at, self.prueba.update_at)
+        self.base.save()
+        self.assertNotEqual(self.base.created_at, self.base.update_at)
+
+
+if __name__ == "__main__":
+    unittest.main()
