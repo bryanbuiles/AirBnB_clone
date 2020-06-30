@@ -122,9 +122,8 @@ class HBNBCommand(cmd.Cmd):
         self.prompt = '(hbnb) '
 
     def do_quit(self, arg):
-        """This funtion allow exit from the console using the command
-        'quit'"""
-        sys.exit(1)
+        """This funtion allow exit from the console using the command 'quit'"""
+        return True
 
     def do_EOF(self, line):
         """This function allow exit from the console using EOF signal
