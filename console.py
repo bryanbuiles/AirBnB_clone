@@ -258,6 +258,8 @@ class HBNBCommand(cmd.Cmd):
             - string from console"""
         if len(arg) != 0:
             advance(self, arg, "User")
+        else:
+            errors("ppp")
 
     def do_City(self, arg):
         """Method to call Cityin the form City.<method>()
@@ -265,6 +267,8 @@ class HBNBCommand(cmd.Cmd):
             - string from console"""
         if len(arg) != 0:
             advance(self, arg, "City")
+        else:
+            errors("ppp")
 
     def do_BaseModel(self, arg):
         """Method to call Amenity in the form Amenity.<method>()
@@ -272,6 +276,8 @@ class HBNBCommand(cmd.Cmd):
             - String from console"""
         if len(arg) != 0:
             advance(self, arg, "BaseModel")
+        else:
+            errors("ppp")
 
     def do_Review(self, arg):
         """Method to call Review in the form Review.<method>()
@@ -279,6 +285,8 @@ class HBNBCommand(cmd.Cmd):
             - String from console"""
         if len(arg) != 0:
             advance(self, arg, "Review")
+        else:
+            errors("ppp")
 
     def do_Amenity(self, arg):
         """Method to call Amenity in the form Amenity.<method>()
@@ -286,6 +294,8 @@ class HBNBCommand(cmd.Cmd):
             - String from console"""
         if len(arg) != 0:
             advance(self, arg, "Amenity")
+        else:
+            errors("ppp")
 
     def do_State(self, arg):
         """Method to call State in the form State.<method>()
@@ -293,6 +303,8 @@ class HBNBCommand(cmd.Cmd):
             - string from console"""
         if len(arg) != 0:
             advance(self, arg, "State")
+        else:
+            errors("ppp")
 
 
 if __name__ == '__main__':
