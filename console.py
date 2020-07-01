@@ -68,21 +68,23 @@ def advance(self, arg, cls):
         -arg : string with method, id, instance name and instance value
         -cls : class to apply the method"""
     if len(arg) != 0:
-        if arg == ".all()":
-            self.do_all(cls)
-        elif arg == ".count()":
+        if arg[0] == "all":
+            self.do_all("all" + cls)
+        elif arg[0] == "count":
             print(count(cls))
-        elif arg[0:9] == ".destroy(":
-            c = arg.split('"')
+        elif arg[0] == "destroy":
+            c = arg[1].split('"')
             self.do_destroy(cls + " " + c[1])
-        elif arg[0:6] == ".show(":
-            c = arg.split('"')
+        elif arg[0] == "show":
+            c = arg[1].split('"')
             self.do_show(cls + " " + c[1])
-        elif arg[0:8] == ".update(":
-            c = arg.split("(")
+        elif arg[0] == "update":
+            c = arg[1].split("(")
             d = c[1].split(", ")
             self.do_update(cls + " " + d[0][1:-1] + " " + d[1] +
                            " " + d[2][:-1])
+        else:
+            print("*** Unknown syntax: {}{}".format(cls, arg))
 
 
 def split_string(s, lim):
