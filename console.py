@@ -73,25 +73,16 @@ def advance(self, arg, cls):
         elif arg == ".count()":
             print(count(cls))
         elif arg[0:9] == ".destroy(":
-            if arg[7] == '"' and arg[-1] == '"':
-                c = arg.split('"')
-                self.do_destroy(cls + " " + c[1])
-            else:
-                print("** no instance found **")
+            c = arg.split('"')
+            self.do_destroy(cls + " " + c[1])
         elif arg[0:6] == ".show(":
-            if arg[7] == '"' and arg[-1] == '"':
-                c = arg.split('"')
-                self.do_show(cls + " " + c[1])
-            else:
-                print("** no instance found **")
-                return
+            c = arg.split('"')
+            self.do_show(cls + " " + c[1])
         elif arg[0:8] == ".update(":
             c = arg.split("(")
             d = c[1].split(", ")
             self.do_update(cls + " " + d[0][1:-1] + " " + d[1] +
                            " " + d[2][:-1])
-        else:
-            print("*** Unknown syntax: {}{}".format(cls, arg))
 
 
 def split_string(s, lim):
@@ -268,7 +259,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "User")
         else:
-            errors("")
+            errors("ppp")
 
     def do_City(self, arg):
         """Method to call Cityin the form City.<method>()
@@ -277,7 +268,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "City")
         else:
-            errors("")
+            errors("ppp")
 
     def do_BaseModel(self, arg):
         """Method to call Amenity in the form Amenity.<method>()
@@ -286,7 +277,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "BaseModel")
         else:
-            errors("")
+            errors("ppp")
 
     def do_Review(self, arg):
         """Method to call Review in the form Review.<method>()
@@ -295,7 +286,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "Review")
         else:
-            errors("")
+            errors("ppp")
 
     def do_Amenity(self, arg):
         """Method to call Amenity in the form Amenity.<method>()
@@ -304,7 +295,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "Amenity")
         else:
-            errors("")
+            errors("ppp")
 
     def do_State(self, arg):
         """Method to call State in the form State.<method>()
@@ -313,7 +304,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) != 0:
             advance(self, arg, "State")
         else:
-            errors("")
+            errors("ppp")
 
 
 if __name__ == '__main__':
