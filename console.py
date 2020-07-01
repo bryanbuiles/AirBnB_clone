@@ -308,6 +308,15 @@ class HBNBCommand(cmd.Cmd):
         else:
             errors("ppp")
 
+    def do_Place(self, arg):
+        """Method to call State in the form State.<method>()
+        Args:
+            - string from console"""
+        if len(arg) != 0:
+            advance(self, arg, "Place")
+        else:
+            errors("ppp")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
