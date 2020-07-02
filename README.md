@@ -34,7 +34,7 @@ The create feature allows you to set up new instances of different classes conta
 (hbnb) create User
 ```
 
-**2.** Show:
+**2. Show:**
 
 It is used to display the different attributes present in a class instance. There are two ways to use this command: 
 
@@ -48,7 +48,7 @@ The second one is using the show in this way \<class_name\>.show(\<id\>). For ex
 ```python
 (hbnb) City.show("6755cf15-ab50-4594-aa12-741a7f62bae6")
 ```
-**3.** Destroy:
+**3. Destroy:**
 
 The destroy method allows the destruction of a class instance. For this, it will only be enough to know the name of the classname and the id of the instance to destroy. 
 The way to use this method is like the show feature:
@@ -62,7 +62,7 @@ or:
 (hbnb) City.destroy("6755cf15-ab50-4594-aa12-741a7f62bae6")
 ```
 
-**4.** All:
+**4. All:**
 
 This method allows display all existing classes instances in the data base. Just type in the console:
 
@@ -80,7 +80,7 @@ Also you can use \<class_name>.all():
 (hbnb) User.all()
 ```
 
-**5.** Update:
+**5. Update:**
 
 This method is one of the principal features of these console. It allows to actualize a current attribute value in a default instance class. And, if the attribute does not exist, it is created with the assigned value.
 
@@ -110,7 +110,7 @@ Finally, you can modify the created attribute using one of the previous ways:
 ```python
 (hbnb) User.update("ba6b53b4-cfd0-4756-901b-9ef89805110e", phone_number, 573115896)
 ```
-**6.** count:
+**6. Count:**
 
 The count feature allows to check the number of the particular class instances staged in the data base **\<classname\>.count()**
 
