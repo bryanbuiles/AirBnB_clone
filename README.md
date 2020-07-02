@@ -2,7 +2,7 @@
 
 ### Table of Contents
 1. [Introduction](#introduction)
-1. [Installation and usage](#installation_and_usage)
+1. [Installation](#installation)
 1. [Features](#features)
 1. [Authors](#authors)
 1. [Contributing](#contributing)
@@ -10,15 +10,15 @@
 
 ### Introduction
 
-Este proyecto oconsiste en la codificación en lenguaje Python de una consola para la creación, actualización y destrucción de instancias de clase de diferentes clases. Todo esto como base para proximos proyectos, que junto con este, buscan la construcción de una full web application. Este proyecto hace parte del curriculum de la escuela de Holberton School.
+The Console is one part of the AirBnB Clone Proiect, and consists of the coding in Python language for creation, update and destruction of class instances of different classes. The Console is the base for further activities to complete the main project, all following activities and tasks together, seek the construction of a full web application like AirBnB. All these activities and the final project are part of the curriculum of the Holberton School.
 
-### Installation and usage
+### Installation
 
 Clone the repository from the link below: 
 
 [https://github.com/andresjjn/AirBnB_clone.git](https://github.com/andresjjn/AirBnB_clone.git)
 
-Ahora, abra el directorio /AirBnB y ejecute el archivo console.py con la versión de python que disponga en su computador. Por ejemplo, con la versión 3.4: 
+Now, open the directory /AirBnB and execute the console.py file with any version of Python you have in your computer. For example, with the 3.4 version will be: 
 
 ```shell
 python3.4 console.py
@@ -26,106 +26,93 @@ python3.4 console.py
 
 ### Features
 
-**1.** create:
+**1. Create:**
 
-Esta característica permite crear nuevas instancias de las diferentes clases presentes en la consola como BaseModel, User, State, City, Place and Review. Para utilizarla basta con el commando create mas la clase. Así:
+The create feature allows you to set up new instances of different classes contained in the console such as **BaseModel, User, State, City, Place and Review**. To use it, just type **create \<class_name\>** Like this:
 
 ```python
 (hbnb) create User
 ```
 
-**2.** show:
+**2.** Show:
 
-Se utiliza para mostrar los diretentes atributos presentes en una instancia de clase. Exiten dos formas de utilizar este comando: 
+It is used to display the different attributes present in a class instance. There are two ways to use this command: 
 
-La primera consiste en este formato: show <classname> <id>, así:
+In the first format you have to type **show \<class_name\>.(\<id\>)**:
 
 ```python
 (hbnb) show City 6755cf15-ab50-4594-aa12-741a7f62bae6
 ```
-También es posible utilizar: <Classname>.show(<id>)
+The second one is using the show in this way \<class_name\>.show(\<id\>). For example:
 
 ```python
 (hbnb) City.show("6755cf15-ab50-4594-aa12-741a7f62bae6")
 ```
-**3.** destroy:
+**3.** Destroy:
 
-Este metodo permite la destrucción de una instancia de clase. Para esto solo bastará con conocer el nombre de la clase y el id de la instancia a destruir. Las formas de utilizar este método son:
+The destroy method allows the destruction of a class instance. For this, it will only be enough to know the name of the classname and the id of the instance to destroy. 
+The way to use this method is like the show feature:
 
 ```python
 (hbnb) destroy City 6755cf15-ab50-4594-aa12-741a7f62bae6
 ```
-o también:
+or:
 
 ```python
 (hbnb) City.destroy("6755cf15-ab50-4594-aa12-741a7f62bae6")
 ```
 
-**4.** all:
+**4.** All:
 
-Este método permite mostrar todas las instanciaciones de clase existentes actualmente en la base de datos. Para esto tecleammos en la consola:
+This method allows display all existing classes instances in the data base. Just type in the console:
 
 ```python
 (hbnb) all
 ```
-
-Además, si se quiere ver todas la instancias de una clase particular, solo basta agregar el nombre de la clase, así: all <classname>
+In addition, if you want to see more of a specific class intance, you only have to add the name of the class:  all \<classname\>
 
 ```python
 (hbnb) all User
 ```
-o también
+Also you can use \<class_name>.all():
 
 ```python
 (hbnb) User.all()
 ```
 
-**5.** update:
+**5.** Update:
 
-Este es uno de los principales métodos de esta consola, pues no solo permite actualizar los valores de los attributos presentes en una instancia de clase determinada, sino también, si dicho atributo no existe la crea con el valor asignado. Por ejemplo:
+This method is one of the principal features of these console. It allows to actualize a current attribute value in a default instance class. And, if the attribute does not exist, it is created with the assigned value.
 
-Si utilizamos el commando all y un nombre de clase podremos ver todas las intaccias actuales, esto para escoger una y actualizar o crear atributos, así:
+**Note** The default attributes **id**, **updated_at** y **created_at** can not be modified.
 
-```python
-(hbnb) all User
-["[User] (ba6b53b4-cfd0-4756-901b-9ef89805110e) {'id': 'ba6b53b4-cfd0-4756-901b-9ef89805110e', 'updated_at': datetime.datetime(2020, 6, 30, 21,
-45, 23, 306595), 'created_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306568)}", "[User] (afbc6c3f-d90c-4421-99c3-86b55f48c98a) {'id': 
-'afbc6c3f-d90c-4421-99c3-86b55f48c98a', 'updated_at': datetime.datetime(2020, 7, 1, 2, 20, 35, 944422), 'created_at': datetime.datetime(2020, 
-7, 1, 2, 20, 35, 944393)}"]
-```
-Luego, escogemos una de ellas, por ejemplo:
+For example:
 
-```python
-(hbnb) show User ba6b53b4-cfd0-4756-901b-9ef89805110e
-[User] (ba6b53b4-cfd0-4756-901b-9ef89805110e) {'id': 'ba6b53b4-cfd0-4756-901b-9ef89805110e', 'updated_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306595), 'created_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306568)}
-```
-**Nota:** Los atributos **id**, **updated_at** y **created_at** no prodrán ser modificados.
-
-Ya que los atributos iniciales no pueden se modificados, crearemos uno llamado numero de telefono. Para esto sxisten dos métodos, el primero utliza la sintaxis update <classname> <id> <attribute name> "<attribute value>"
+To create a new attribute you can use **update \<classname\> \<id\> \<attribute name\> "\<attribute value\>"**
 
 ```python
 (hbnb) update User ba6b53b4-cfd0-4756-901b-9ef89805110e phone_number 5731225896
 ```
-o también de la forma <class name>.update(<id>, <attribute name>, <attribute value>)
+Also you can use **\<class name\>.update(\<id\>, \<attribute name\>, \<attribute value\>)**
 
 ```python
 (hbnb) User.update("ba6b53b4-cfd0-4756-901b-9ef89805110e", phone_number, 5731225896)
 ```
 
-De nuevo, es posible utilizar el comando show para verificar la creación del nuevo atributo:
+It is possible to use the show command to verify the new attribute created:
 
 ```python
 (hbnb) show User ba6b53b4-cfd0-4756-901b-9ef89805110e
-[User] (ba6b53b4-cfd0-4756-901b-9ef89805110e) {'created_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306568), **'phone_number': 5731225896**, 'updated_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306595), 'id': 'ba6b53b4-cfd0-4756-901b-9ef89805110e'}
+[User] (ba6b53b4-cfd0-4756-901b-9ef89805110e) {'created_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306568), phone_number': 5731225896, 'updated_at': datetime.datetime(2020, 6, 30, 21, 45, 23, 306595), 'id': 'ba6b53b4-cfd0-4756-901b-9ef89805110e'}
 ```
-Finalmente, para modificar, basta con utilizar una de las dos sintaxis y modificar el valor del atributo:
+Finally, you can modify the created attribute using one of the previous ways:
 
 ```python
-(hbnb) User.update("ba6b53b4-cfd0-4756-901b-9ef89805110e", phone_number, +573115896)
+(hbnb) User.update("ba6b53b4-cfd0-4756-901b-9ef89805110e", phone_number, 573115896)
 ```
 **6.** count:
 
-Este método permite contar las intancias de una clase en particular que existen dentro de la base de datos, así: <classname>.count()
+The count feature allows to check the number of the particular class instances staged in the data base **\<classname\>.count()**
 
 ```python
 (hbnb) User.count()
