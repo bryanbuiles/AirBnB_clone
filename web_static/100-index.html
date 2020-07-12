@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/4-common.css" />
+    <link rel="stylesheet" href="styles/3-header.css" />
+    <link rel="stylesheet" href="styles/3-footer.css" />
+    <link rel="stylesheet" href="styles/6-filters.css" />
+    <link rel="stylesheet" href="styles/100-places.css" />
+    <link rel="shortcut icon" href="images/icon.png" />
+    <title>AirBnB clone</title>
+  </head>
+  <body>
+    <header>
+      <div class="hero-img"></div>
+    </header>
+    <div class="container">
+      <section class="filters">
+        <button class="button_search">Search</button>
+        <div class="locations">
+          <h3>States</h3>
+          <h4>California, Arizona...</h4>
+          <!-- NO es recomendable asignar la class en las listas Ul-->
+          <div class="popover">
+            <ul>
+              <li>
+                <h2>Arizona:</h2>
+                <ul>
+                  <li>Page</li>
+                  <li>Page2</li>
+                </ul>
+              </li>
+              <li>
+                <h2>California:</h2>
+                <ul>
+                  <li>Page</li>
+                  <li>Page2</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="amenities">
+          <h3>Amenities</h3>
+          <h4>Internet, Kitchen...</h4>
+          <div class="popover">
+            <ul>
+              <li>Internet</li>
+              <li>Tv</li>
+              <li>Kitchen</li>
+              <li>Pool</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- crear un div para establecer las partes ejem: div class: all classes -->
+      <section class="places">
+        <h1>Places</h1>
+        <div class="all_places">
+          <article>
+            <div class="titulos">
+              <h2>My home</h2>
+              <div class="price_by_night"><p>$80</p></div>
+            </div>
+            <div class="information">
+              <div class="max_guest">
+                <div class="imagen"></div>
+                <span>3 Guests</span>
+              </div>
+              <div class="number_rooms">
+                <div class="imagen"></div>
+                <span>2 Bedroom</span>
+              </div>
+              <div class="number_bathrooms">
+                <div class="imagen"></div>
+                <span>1 Bathroom</span>
+              </div>
+            </div>
+            <div class="user">
+              <b>Owner</b>
+              : Bryan Builes
+            </div>
+            <div class="description">
+              <p>
+                Excelente ubicación: a solo 1,3km de Plaza Mayor y Teatro
+                Metropolitano, 2km del centro, 1.8km de la estación del Metro
+                "Industriales", 700m de la estación "Fátima" de buses que llevan
+                al Metro, 500m del Pueblito Paisa, 2km de Laureles, 250m de la
+                zona deportiva, 700 m de Unicentro, 2.4km de San Diego y Vía Las
+                Palmas. A solo 3km de El Poblado (taxi por US$3).
+              </p>
+            </div>
+            <div class="amenities">
+              <h2>Amenities</h2>
+              <ul>
+                <li>
+                  <div class="tv"></div>
+                  <span>Tv</span>
+                </li>
+                <li>
+                  <div class="wifi"></div>
+                  <span>Wifi</span>
+                </li>
+                <li>
+                  <div class="Pets_friendly"></div>
+                  <span>Pets friendly</span>
+                </li>
+              </ul>
+            </div>
+            <div class="reviews">
+              <h2>2 Reviews</h2>
+              <ul>
+                <li>
+                  <h3>From Bob Dylan the 27th January 2017</h3>
+                  <p>Muy buen lugar</p>
+                </li>
+
+                <li>
+                  <h3>From Laura Catalina the 17th February 2020</h3>
+                  <p>Es un sitio acogedor, para descansar es genial</p>
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article>
+            <div class="titulos">
+              <h2>Tiny house</h2>
+              <div class="price_by_night"><p>$65</p></div>
+            </div>
+            <div class="information">
+              <div class="max_guest">
+                <div class="imagen"></div>
+                <span>2 Guests</span>
+              </div>
+              <div class="number_rooms">
+                <div class="imagen"></div>
+                <span>1 Bedroom</span>
+              </div>
+              <div class="number_bathrooms">
+                <div class="imagen"></div>
+                <span>1 Bathroom</span>
+              </div>
+            </div>
+            <div class="user">
+              <b>Owner</b>
+              : Bryan Builes
+            </div>
+            <div class="description">
+              <p>
+                Confortable apartamento en Laureles, zona hotelera con buenos
+                restaurantes, facil transporte público, tiendas y supermercado.
+              </p>
+            </div>
+            <div class="amenities">
+              <h2>Amenities</h2>
+              <ul>
+                <li>
+                  <div class="Pets_friendly"></div>
+                  <span>Pets friendly</span>
+                </li>
+              </ul>
+            </div>
+            <div class="reviews">
+              <h2>1 Reviews</h2>
+              <ul>
+                <li>
+                  <h3>From Angelica the 27th June 2020</h3>
+                  <p>
+                    Muy bien espacio, limpio, muy buena ubicación e ideal para
+                    descansar y relajarte. Muy buena estadía. Recomendados!
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article>
+            <div class="titulos">
+              <h2>A suite</h2>
+              <div class="price_by_night"><p>$100</p></div>
+            </div>
+            <div class="information">
+              <div class="max_guest">
+                <div class="imagen"></div>
+                <span>3 Guests</span>
+              </div>
+              <div class="number_rooms">
+                <div class="imagen"></div>
+                <span>2 Bedroom</span>
+              </div>
+              <div class="number_bathrooms">
+                <div class="imagen"></div>
+                <span>1 Bathroom</span>
+              </div>
+            </div>
+            <div class="user">
+              <b>Owner</b>
+              : Bryan Builes
+            </div>
+            <div class="description">
+              <p>
+                HABITACIÓN CON BAÑO PRIVADO en apartamento compartido conmigo.
+                Habitación completa con toallas shampoo jabón..puedes usar
+                cocina completa si deseas preparar sus refección y también
+                cuenta con parqueadero para auto y moto sin costo adicional. El
+                apartamento esta a 8 minutos en UBER/TAXI del parque lleras la
+                zona rosa de medellin. Y a solo 5 minutos caminando del centro
+                comercial el tesoro. El huésped tiene aceso a pscina sauna
+                jacuzzi con agua climatizada y vista para toda la ciudad.
+              </p>
+            </div>
+            <div class="amenities">
+              <h2>Amenities</h2>
+              <ul>
+                <li>
+                  <div class="tv"></div>
+                  <span>Tv</span>
+                </li>
+                <li>
+                  <div class="wifi"></div>
+                  <span>Wifi</span>
+                </li>
+              </ul>
+            </div>
+            <div class="reviews">
+              <h2>2 Reviews</h2>
+              <ul>
+                <li>
+                  <h3>From Diego Fernando the 27th February 2020</h3>
+                  <p>
+                    Excelente ubicación, es un espacio apropiado para el
+                    descanso y el disfrute de la ciudad.
+                  </p>
+                </li>
+
+                <li>
+                  <h3>From Juan David the 30th March 2020</h3>
+                  <p>
+                    Excelente sitió, super bien ubicado, anfitriones muy
+                    amables.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <p>
+        <b>Holberton School</b>
+      </p>
+    </footer>
+  </body>
+</html>
